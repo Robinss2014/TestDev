@@ -1,0 +1,29 @@
+{
+  "name": "famous-utils",
+  "version": "1.1.0",
+  "description": "simple utility functions for Famo.us",
+  "main": "Math.js",
+  "author": {
+    "name": "Tim Chin",
+    "email": "tim@famo.us"
+  },
+  "license": "MPLv2",
+  "browserify": {
+    "transform": [
+      "famousify",
+      "deamdify"
+    ]
+  },
+  "devDependencies": {
+    "famous": "0.3.4"
+  },
+  "dependencies": {
+    "deamdify": "^0.1.1",
+    "famousify": "^0.1.5"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "famous-utils@1.1.0",
+  "_shasum": "c0196dd0d26091cff069b5af9b14892a51223c71",
+  "_resolved": "git+ssh://git@github.com:FamousInternal/famous-utils#dd20b818bb5ce97700bfc73096b10cf751d3c0d4",
+  "_from": "famous-utils@git+ssh://git@github.com:FamousInternal/famous-utils#master"
+}

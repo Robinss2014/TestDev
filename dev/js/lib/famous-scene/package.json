@@ -1,0 +1,42 @@
+{
+  "name": "famous-scene",
+  "version": "0.2.0",
+  "description": "Scene management for Famo.us apps",
+  "browserify": {
+    "transform": [
+      "famousify",
+      "deamdify"
+    ]
+  },
+  "scripts": {
+    "test": "prova -t provify ./tests/**/*.spec.js -b"
+  },
+  "contributors": [
+    {
+      "name": "Tim Chin",
+      "email": "tim@famo.us"
+    },
+    {
+      "name": "Arkady Pevzner",
+      "email": "arkady@famo.us"
+    }
+  ],
+  "license": "MPLv2",
+  "devDependencies": {
+    "famousify": "^0.1.5",
+    "famous": "^0.3.1",
+    "prova": "^1.14.2",
+    "provify": "^0.1.2",
+    "tape": "^3.0.0"
+  },
+  "dependencies": {
+    "deamdify": "^0.1.1",
+    "famousify": "^0.1.5"
+  },
+  "readme": "Famous Scene\n\n",
+  "readmeFilename": "README.md",
+  "_id": "famous-scene@0.2.0",
+  "_shasum": "22857aaeba80b3fdb27463b59a9aa9dfc2121ba1",
+  "_resolved": "git+ssh://git@github.com:Famous/scene.git#abbbee7715093147a01f90e922d0faeab602a6b0",
+  "_from": "famous-scene@git+ssh://git@github.com:Famous/scene.git#master"
+}

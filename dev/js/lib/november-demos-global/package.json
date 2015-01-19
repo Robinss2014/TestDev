@@ -1,0 +1,34 @@
+{
+  "name": "november-demos-global",
+  "version": "0.3.2",
+  "description": "seed for a browserified version of famous",
+  "browser": "src/index.js",
+  "main": "plugin.js",
+  "browserify": {
+    "transform": [
+      "famousify",
+      "cssify",
+      "brfs"
+    ]
+  },
+  "author": {
+    "name": "Famo.us"
+  },
+  "license": "MPLv2",
+  "devDependencies": {
+    "famous-web-components": "git+ssh://git@github.com:FamousInternal/famous-web-components.git#master",
+    "famous": "^0.3.0"
+  },
+  "dependencies": {
+    "brfs": "^1.2.0",
+    "browserify": "^6.2.0",
+    "cssify": "^0.6.0",
+    "famousify": "^0.1.5",
+    "uglify-js": "^2.4.15"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "november-demos-global@0.3.2",
+  "_shasum": "38e6e686da02a029b0f253feebb54c3d94e48a1a",
+  "_resolved": "git+ssh://git@github.com:FamousInternal/november-demo-global#1c400317defcf440f8658f5c721f0819accc33be",
+  "_from": "november-demo-global@git+ssh://git@github.com:FamousInternal/november-demo-global"
+}

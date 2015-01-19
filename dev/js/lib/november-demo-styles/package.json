@@ -1,0 +1,24 @@
+{
+  "name": "november-demo-styles",
+  "version": "0.0.0",
+  "description": "seed for a browserified version of famous",
+  "browser": "./index.js",
+  "main": "./index.js",
+  "browserify": {
+    "transform": [
+      "cssify"
+    ]
+  },
+  "author": {
+    "name": "TheAlphaNerd"
+  },
+  "license": "MPLv2",
+  "dependencies": {
+    "cssify": "^0.6.0"
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "november-demo-styles@0.0.0",
+  "_shasum": "787e779b9217e712bb0b5320a704f93bad689c67",
+  "_resolved": "git+ssh://git@github.com:FamousInternal/november-demo-styles#1009fa87ebc2e5b7a69c6905dfcfe723722d4a2b",
+  "_from": "november-demo-styles@git+ssh://git@github.com:FamousInternal/november-demo-styles"
+}

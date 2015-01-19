@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Examples</title>
+        <meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+        <link rel="stylesheet" type="text/css" href="./css/famous.css" />
+        <link rel="stylesheet" type="text/css" href="./css/app.css" />
+        <link rel="stylesheet" type="text/css" href="./css/periodic.css" />
+
+        <!-- build:js(app/) src/polyfills.js -->
+        <script type="text/javascript" src="./lib/functionPrototypeBind.js"></script>
+        <script type="text/javascript" src="./lib/classList.js"></script>
+        <script type="text/javascript" src="./lib/requestAnimationFrame.js"></script>
+        <!-- endbuild -->
+
+        <!-- process:remove:dist -->
+        <script type="text/javascript" src="./lib/require.js" data-main="./js/base"></script>
+        <script>
+            // CHANGE THIS BELOW FROM 'test' to another name of a javascript file located in the demos direcotry
+            require(['tooltip'], function() {});
+        </script>
+        <!-- /process -->
+    </head>
+    <body>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+{
+  "name": "famous-web-components",
+  "description": "Collection of paper polymer elements using Famo.us.",
+  "version": "0.4.0",
+  "author": {
+    "name": "Famous"
+  },
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab-famouslabs.famo.us:kill-ionic-rebirth/ui-component-framework.git"
+  },
+  "bugs": {
+    "url": "https://gitlab-famouslabs.famo.us/kill-ionic-rebirth/ui-component-framework/issues"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "dependencies": {
+    "deamdify": "^0.1.1",
+    "famousify": "^0.1.5"
+  },
+  "devDependencies": {
+    "browserify": "^6.3.2",
+    "eslint": "^0.9.2",
+    "famous": "^0.3.0",
+    "famous-doc-generator": "^0.6.1",
+    "famous-polyfills": "^0.3.0",
+    "grunt": "~0.4.4",
+    "jscs": "^1.5.9",
+    "prova": "^1.14.0",
+    "provify": "^0.1.0",
+    "tape": "^3.0.3",
+    "uglify-js": "^2.4.15",
+    "uglifyjs": "^2.3.6",
+    "watchify": "^2.1.1"
+  },
+  "scripts": {
+    "watch-js": "watchify core/index.js -o dist/famous.ui.js -dv",
+    "build": "browserify core/index.js > dist/famous-ui.js",
+    "docs": "famous-doc-generator --base=./core --out=./docs",
+    "lint-jscs": "jscs containers/ controls/ core/ data/ utils/",
+    "lint": "npm run lint-jscs",
+    "test": "prova -t provify ./tests/**/*.spec.js -b"
+  },
+  "browserify": {
+    "transform": [
+      "famousify",
+      "deamdify"
+    ]
+  },
+  "readme": "# Famo.us UI\n\n## Setting Up\n\n```\n# on the commandline run:\nnpm install\n```\n\n## Viewing the Demos\n\nTo View the demos, use serve, or any other static http server:\n```\nnpm install -g serve\n# from base directory\nserve\n# in the browser go to:\nlocalhost:3000/demos/\n```\n\nA framework for building visually rich Famo.us apps and UI components. Along the way, it provides familiar packaging for all that makes Famo.us amazing via an API that requires significantly less learning and code overhead.\n\n## Introduction\n\n**Famo.us UI** empowers 2 categories of developers:\n\n1. **Application developers** will get an easy-to-use set of UI Components (like checkboxes, sliders, selectable menus, tab navigators, etc, etc) which will allow them to create beautiful Famo.us apps.\n\n2. **Component developers** will be able to easily extend current base classes and follow their internal structure in order to build new UI Components.\n\n## Famo.us UI Core\n\nFamo.us UI Core is the base set of abstractions, composed of three classes: UIBase, UIElement, and UIComponent.\n\n### UIBase\n\nAbstract Base class - it's the fundamental unit of \"an interactive object in space\", with built-in transitions and event dispatch. Both UIElement and UIComponent inherit from this base. UIBase exposes the following methods:\n\n```\non\noff\nemit\ndestroy\nsetPosition / getPosition\nsetSize / getSize\nsetRotation / getRotation\nsetScale / getScale\nsetSkew / getSkew\nsetDelay / getDelay         // nigel - don't think this makes sense\nsetTransform / getTransform\nsetOpacity / getOpacity\nsetOrigin / getOrigin\nsetAlign / getAlign\ngetFinalTransform\nhalt\n```\n\n### UIElement (inherits UIBase)\n\nUIElements are the building blocks within Famo.us UIComponents. They build upon UIBase, layering in the ability to render content, and respond to gesture input (in effect encapsulating surfaces and syncs). These are atomic units\nfrom which UIComponents compose themselves; they cannot contain anything other than their content. Typically, only component developers need to use UIElements.\n\nUIElements contain the following methods:\n\n```\nsetContent / getContent\nsetStyle / getStyle\nsetClasses / getClasses\n```\n\n### UIComponent (inherits UIBase)\n\nUIComponents are the fundamental building blocks of apps. UIComponents encapsulate their internals, typically composed of UIElements and other UIComponents; developers don't have access to add or remove arbitrary content within them.\n\nThe UIComponent class currently doesn't add a lot of external APIs for app developers - rather it structures its protected internal APIs for making it easy for component developers to create new subclasses. In the future, UIComponent will be the home for keyboard focus, accessibility, and some level of service integration. Wait for it =).\n\n## Creating a UIComponent\n\nHere is how you create a very basic card UIComponent.\n\n```javascript\ndefine(function(require, exports, module) {\n\n    var UIElement   = require('../core/UIElement');\n    var UIComponent = require('../core/UIComponent');\n\n    var UICard = UIComponent.extend({\n        constructor: function(options) {\n            this._callSuper(UIComponent, 'constructor', options);\n\n            // Values exposed to user via options object\n            this.background    = this.options.background   || '#fff';\n            this.boxShadow     = this.options.boxShadow    || '0 2px 10px 0 rgba(0, 0, 0, 0.16)'\n            this.borderRadius  = this.options.borderRadius || '2px';\n            this.content       = this.options.content      || '';\n            this.textAlign     = this.options.textAlign    || 'center';\n            this.lineHeight    = this.options.lineHeight   || this.getSize()[1] + 'px';\n\n            // Default values\n            this._height       = 300;\n            this._width        = 300;\n\n            this._createCard();\n            this._layout();\n        },\n\n        _createCard: function(options) {\n            this.cardBackground = new UIElement();\n            this.cardBackground.setStyle({\n                background: this.background,\n                boxShadow: this.boxShadow,\n                borderRadius: this.borderRadius,\n                textAlign: this.textAlign,\n                lineHeight: this.lineHeight\n            });\n            this.cardBackground.setContent(this.content);\n            this._addChild(this.cardBackground);\n        },\n\n        _layout: function(options) {\n            var cardSize = this.getSize();\n            if (!cardSize[0]) cardSize[0] = this._width;\n            if (!cardSize[1]) cardSize[1] = this._height;\n            this.setSize(cardSize[0], cardSize[1]);\n        },\n\n        on: function(type, event) {\n            return this.cardBackground.on(type, event);\n        }\n    });\n\n    module.exports = UICard;\n});\n```\n\nLets instantiate and manipulate a new UICard.\n\n```javascript\ndefine(function(require, exports, module) {\n    var Engine = require('famous/core/Engine');\n    var UICard = require('./components/UICard');\n\n    var mainContext = Engine.createContext();\n\n    var card = new UICard({\n        size: [200, 200],\n        content: 'Mein Schatzi',\n        origin: [0.5, 0.5],\n        align: [0.5, 0.5],\n        background: 'Yellow',\n        textAlign: 'center'\n    });\n\n    card.on('click', function() {\n        card.setRotation(0, 0, Math.PI * 2, {\n            duration: 3000,\n            curve: 'outBounce'\n        });\n        card.setSize(300, 300, {\n            duration: 3000\n        });\n    });\n\n    mainContext._addChild(card);\n});\n```\n",
+  "readmeFilename": "README.md",
+  "_id": "famous-web-components@0.4.0",
+  "_shasum": "df9e0baa73e531d30c8ca881591456ce395f29cd",
+  "_resolved": "git+ssh://git@github.com:FamousInternal/famous-web-components.git#a08effef7c180cdefc95ae9688e3c31526c083e4",
+  "_from": "famous-web-components@git+ssh://git@github.com:FamousInternal/famous-web-components.git#master"
+}

@@ -1,0 +1,62 @@
+html { 
+    font-family: 'Avenir', 'Helveica', sans-serif;
+}
+.element {
+    box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+    border: 1px solid rgba(127,255,255,0.25);
+    text-align: center;
+    font-family: 'Helvetica', sans-serif;
+}
+
+.element .number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: rgba(127,255,255,0.75);
+}
+
+.grid-shadow {
+    border-radius: 7px;
+    box-shadow: 0 2px 0 0 rgb(60, 53, 72);
+}
+
+p.grid-item {
+    font-family: Helvetica;
+    font-weight: bold;
+    position: absolute;
+    right: -10px;
+    bottom: -50px;
+    color: white;
+    font-size: 60px;
+    padding-right: 30px;
+}
+
+.element .symbol {
+    position: absolute;
+    top: 40px;
+    left: 0px;
+    right: 0px;
+    font-size: 60px;
+    font-weight: bold;
+    color: rgba(255,255,255,0.75);
+    text-shadow: 0 0 10px rgba(0,255,255,0.95);
+}
+
+.element .details {
+    position: absolute;
+    bottom: 15px;
+    left: 0px;
+    right: 0px;
+    font-size: 12px;
+    color: rgba(127,255,255,0.75);
+}
+
+.scrollable {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.famous-container .disable-scrollbar::-webkit-scrollbar {
+    display: none;
+}

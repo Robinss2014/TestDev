@@ -1,0 +1,22 @@
+html {
+    background: #fff;
+}
+
+body.web {
+    background: #333333;
+}
+
+.backfaceVisibility {
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+}
+
+.snapshotPhoto {
+    border: 20px solid white;
+    box-shadow: 0 0 3px 3px rgba(60,60,60,0.3);
+    z-index: 1;
+}
+
+.snapshotBackground {
+    -webkit-filter: blur(20px);
+}

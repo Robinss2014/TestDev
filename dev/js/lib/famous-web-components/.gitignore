@@ -1,0 +1,19 @@
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Node Files #
+##############
+node_modules
+
+# Project Files #
+#################
+dist
+.tmp
+examples/lib
+.yo-rc.json
+
+docs/*

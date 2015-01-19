@@ -1,0 +1,110 @@
+.backfaceVisibility {
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+.additional-detail-title {
+    font-family: Avenir Next;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.additional-detail-description {
+    margin-top: 12px;
+    font-family: Avenir Next;
+    font-size: 14px;
+}
+
+.no-user-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ui-popup-label {
+    background-color: rgb(51, 51, 51);
+    border: 1px solid white;
+    border-radius: 5px;
+    cursor: pointer;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    box-sizing: border-box;
+}
+
+.ui-popup-label:hover {
+    background-color: rgba(120, 120, 120, 0.5);
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+    .additional-detail-title {
+        font-size: 16px;
+    }
+    .additional-detail-description {
+        font-size: 12px;
+    }
+
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+    .additional-detail-title {
+        font-size: 20px;
+    }
+    .additional-detail-description {
+        font-size: 16px;
+    }
+}
+
+
+/* Desktops and laptops ----------- */
+@media only screen 
+and (min-width : 1224px) {
+    .additional-detail-title {
+        font-size: 24px;
+    }
+    .additional-detail-description {
+        font-size: 18px;
+    }
+}
+
+/* Large screens ----------- */
+@media only screen 
+and (min-width : 1824px) {
+    .additional-detail-title {
+        font-size: 28px;
+    }
+    .additional-detail-description {
+        font-size: 20px;
+    }
+}
+
+.ui-record-background { 
+    background-color: rgba(200,200,200,0.2);
+    border-radius: 5px;
+}
+
+.ui-timer {
+    font-family: Avenir, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.ui-dropdown-label {
+    color: #ffffff;
+    font-family: Avenir, sans-serif;
+    font-size: 16px;
+}
+
+.ui-dropdown-background { 
+    background-color: #0a1a2b;
+    border-radius: 5px;
+}
